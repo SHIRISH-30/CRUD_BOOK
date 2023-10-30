@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Books Repository</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      border: 1px solid #333;
+      background-color: #fff;
+    }
+
+    table th {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+    }
+
+    table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    button {
+      display: block;
+      text-align: center;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% books.forEach(function(details) { %>
+            <tr>
+                <td><%= details.title %></td>
+                <td><%= details.author %></td>
+                <td><%= details.genre %></td>
+                <td><a href="/edit/<%= details._id %>">Edit</a> | <a href="/delete/<%= details._id %>">Delete</a></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <button><a href="/">Insert New</a></button>
+</body>
+</html>
